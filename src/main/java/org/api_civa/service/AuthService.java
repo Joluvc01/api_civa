@@ -1,7 +1,6 @@
 package org.api_civa.service;
 
 import org.api_civa.dto.ReqRes;
-import org.api_civa.entity.User;
 import org.api_civa.repository.UserRepository;
 import org.api_civa.security.JWTUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +26,6 @@ public class AuthService {
 
     public ReqRes signIn(ReqRes singInRequest) {
         ReqRes response = new ReqRes();
-        System.out.println(singInRequest.getUsername());
-        System.out.println(singInRequest.getPassword());
         try {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(singInRequest.getUsername(), singInRequest.getPassword())
